@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server';
 
-const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:8080';
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:8081';
 
 export function getAuthHeaders(request: NextRequest): Record<string, string> {
   const authorization = request.headers.get('authorization');
@@ -28,6 +28,7 @@ export async function forwardAuthRequest(
     fetchOptions.body = JSON.stringify(body);
   }
   
+  console.log(`Forwarding request to: ${API_BASE_URL}${endpoint}`);
   const response = await fetch(`${API_BASE_URL}${endpoint}`, fetchOptions);
   
   return response;
