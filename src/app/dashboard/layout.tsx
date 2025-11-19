@@ -109,7 +109,7 @@ export default function DashboardLayout({
               <button
                 key={item.name}
                 onClick={() => handleMenuClick(item.url)}
-                className={`flex items-center gap-3 p-3 rounded hover:bg-blue-800 transition-colors w-full text-left ${
+                className={`flex items-center gap-3 p-3 rounded hover:bg-blue-800 cursor-pointer transition-colors w-full text-left ${
                   currentApp === item.url ? 'bg-blue-800' : ''
                 }`}
               >
