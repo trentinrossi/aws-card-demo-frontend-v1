@@ -1,0 +1,58 @@
+{
+  "name": "card-demo",
+  "$schema": "./node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "src",
+  "projectType": "application",
+  "tags": ["type:app", "scope:main"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "card-demo:build",
+        "dev": true,
+        "port": 3005,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "card-demo:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "card-demo:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/card-demo",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/card-demo"
+        },
+        "production": {
+          "outputPath": "dist/card-demo"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "card-demo:build",
+        "dev": false,
+        "port": 3005
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

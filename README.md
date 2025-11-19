@@ -1,44 +1,63 @@
 # CardDemo Frontend - Nx Monorepo
 
-This is an Nx monorepo containing 5 Next.js applications for the CardDemo card management system.
+This is an Nx monorepo containing 6 Next.js applications for the CardDemo card management system.
 
 ## Quick Start
 
 1. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 2. **Start all applications:**
+
 ```bash
 npm run dev
 ```
 
+Or start everything including the dashboard:
+
+```bash
+npm run dev:all
+```
+
 3. **Access the applications:**
-- Login: http://localhost:3000
-- Accounts: http://localhost:3001
-- Bill Payment: http://localhost:3002
-- Card Management: http://localhost:3003
-- Transactions: http://localhost:3004
+
+- **Dashboard**: http://localhost:3005 (main navigation hub)
+- **Login**: http://localhost:3000 (default entry point)
+- **Accounts**: http://localhost:3001
+- **Bill Payment**: http://localhost:3002
+- **Card Management**: http://localhost:3003
+- **Transactions**: http://localhost:3004
 
 ## Applications
 
 | Application      | Port | Description                          |
 |-----------------|------|--------------------------------------|
+| card-demo (main) | 3005 | Dashboard with sidenav menu         |
 | login           | 3000 | Authentication & menu system         |
 | accounts        | 3001 | Account management                   |
 | bill-payment    | 3002 | Payment processing                   |
 | card-management | 3003 | Credit card operations               |
 | transactions    | 3004 | Transaction history                  |
 
+## How It Works
+
+- **Root URL** (`http://localhost:3005`) redirects to **Login** (`http://localhost:3000`)
+- After authentication, users can access the **Dashboard** (`http://localhost:3005/dashboard`) with a sidenav menu
+- The sidenav provides quick links to all applications (Accounts, Bill Payment, Card Management, Transactions)
+- Each app runs independently on its own port
+
 ## Running Individual Apps
 
 ```bash
-npm run dev:login              # Start only login app
-npm run dev:accounts           # Start only accounts app
-npm run dev:bill-payment       # Start only bill-payment app
-npm run dev:card-management    # Start only card-management app
-npm run dev:transactions       # Start only transactions app
+npm run dev:dashboard         # Start dashboard/main app
+npm run dev:login             # Start only login app
+npm run dev:accounts          # Start only accounts app
+npm run dev:bill-payment      # Start only bill-payment app
+npm run dev:card-management   # Start only card-management app
+npm run dev:transactions      # Start only transactions app
 ```
 
 ## Documentation

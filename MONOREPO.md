@@ -1,6 +1,6 @@
 # CardDemo Frontend - Nx Monorepo
 
-This is an Nx monorepo containing 5 Next.js applications for the CardDemo card management system.
+This is an Nx monorepo containing 6 Next.js applications for the CardDemo card management system.
 
 ## Applications
 
@@ -8,11 +8,19 @@ Each application runs on its own port in development mode:
 
 | Application      | Port | Description                          |
 |-----------------|------|--------------------------------------|
+| card-demo (main) | 3005 | Dashboard with sidenav menu         |
 | login           | 3000 | Authentication & menu system         |
 | accounts        | 3001 | Account management                   |
 | bill-payment    | 3002 | Payment processing                   |
 | card-management | 3003 | Credit card operations               |
 | transactions    | 3004 | Transaction history                  |
+
+## Application Flow
+
+1. **Root URL** (`http://localhost:3005`) → Redirects to Login
+2. **Login** (`http://localhost:3000`) → User authentication
+3. **Dashboard** (`http://localhost:3005/dashboard`) → Main navigation with sidenav
+4. **Sidenav Menu** → Links to all apps (Accounts, Bill Payment, Card Management, Transactions)
 
 ## Running Applications
 
