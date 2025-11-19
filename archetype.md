@@ -15,7 +15,7 @@ This is a Next.js 15.5.3 application archetype with React 19, TypeScript 5, Tail
 ## Project Structure
 
 ```text
-archetype-nextjs/
+card-demo/
 ├── eslint.config.mjs                    # ESLint configuration (flat config)
 ├── next.config.ts                       # Next.js configuration
 ├── package.json                         # Project dependencies and scripts
