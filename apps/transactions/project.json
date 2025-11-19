@@ -1,0 +1,58 @@
+{
+  "name": "transactions",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/transactions",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "transactions:build",
+        "dev": true,
+        "port": 3004,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "transactions:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "transactions:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/transactions",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/apps/transactions"
+        },
+        "production": {
+          "outputPath": "dist/apps/transactions"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "transactions:build",
+        "dev": false,
+        "port": 3004
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

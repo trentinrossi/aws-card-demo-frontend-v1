@@ -1,31 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CardDemo Frontend - Nx Monorepo
 
-## Getting Started
+This is an Nx monorepo containing 5 Next.js applications for the CardDemo card management system.
 
-First, install and run the development server:
+## Quick Start
 
+1. **Install dependencies:**
 ```bash
 npm install
+```
+
+2. **Start all applications:**
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Access the applications:**
+- Login: http://localhost:3000
+- Accounts: http://localhost:3001
+- Bill Payment: http://localhost:3002
+- Card Management: http://localhost:3003
+- Transactions: http://localhost:3004
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Applications
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Application      | Port | Description                          |
+|-----------------|------|--------------------------------------|
+| login           | 3000 | Authentication & menu system         |
+| accounts        | 3001 | Account management                   |
+| bill-payment    | 3002 | Payment processing                   |
+| card-management | 3003 | Credit card operations               |
+| transactions    | 3004 | Transaction history                  |
+
+## Running Individual Apps
+
+```bash
+npm run dev:login              # Start only login app
+npm run dev:accounts           # Start only accounts app
+npm run dev:bill-payment       # Start only bill-payment app
+npm run dev:card-management    # Start only card-management app
+npm run dev:transactions       # Start only transactions app
+```
+
+## Documentation
+
+- **[MONOREPO.md](./MONOREPO.md)** - Complete Nx monorepo guide with all commands
+- **[archetype.md](./archetype.md)** - Architecture patterns and feature development guide
+- **[.github/copilot-instructions.md](./.github/copilot-instructions.md)** - AI coding assistant guide
+
+## Technology Stack
+
+- **Nx 22.0.4** - Monorepo management
+- **Next.js 15.5.3** - React framework with App Router
+- **React 19.1.0** - UI library
+- **TypeScript 5** - Type safety
+- **TailwindCSS v4** - Styling
+- **Turbopack** - Fast bundler
+
+## Backend Integration
+
+All applications proxy API requests to `http://localhost:8080/api/*`. Make sure the backend server is running before starting the frontend.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Nx Documentation](https://nx.dev) - Learn about Nx
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features
+- [React Documentation](https://react.dev) - Learn React

@@ -1,0 +1,58 @@
+{
+  "name": "bill-payment",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/bill-payment",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "bill-payment:build",
+        "dev": true,
+        "port": 3002,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "bill-payment:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "bill-payment:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/bill-payment",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/apps/bill-payment"
+        },
+        "production": {
+          "outputPath": "dist/apps/bill-payment"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "bill-payment:build",
+        "dev": false,
+        "port": 3002
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

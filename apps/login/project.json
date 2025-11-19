@@ -1,0 +1,58 @@
+{
+  "name": "login",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/login",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "login:build",
+        "dev": true,
+        "port": 3000,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "login:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "login:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/login",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/apps/login"
+        },
+        "production": {
+          "outputPath": "dist/apps/login"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "login:build",
+        "dev": false,
+        "port": 3000
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "name": "accounts",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/accounts",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "accounts:build",
+        "dev": true,
+        "port": 3001,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "accounts:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "accounts:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/accounts",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/apps/accounts"
+        },
+        "production": {
+          "outputPath": "dist/apps/accounts"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "accounts:build",
+        "dev": false,
+        "port": 3001
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

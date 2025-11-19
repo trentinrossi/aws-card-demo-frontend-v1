@@ -1,0 +1,58 @@
+{
+  "name": "card-management",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/card-management",
+  "projectType": "application",
+  "tags": ["type:app"],
+  "targets": {
+    "dev": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "card-management:build",
+        "dev": true,
+        "port": 3003,
+        "customServerPath": null
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "card-management:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "card-management:build:production",
+          "dev": false
+        }
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/card-management",
+        "outputStandalone": true
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "dist/apps/card-management"
+        },
+        "production": {
+          "outputPath": "dist/apps/card-management"
+        }
+      }
+    },
+    "start": {
+      "executor": "@nx/next:server",
+      "defaultConfiguration": "production",
+      "options": {
+        "buildTarget": "card-management:build",
+        "dev": false,
+        "port": 3003
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
