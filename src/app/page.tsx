@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { authService } from '@/services/authService';
 import DashboardPage from './dashboard/page';
+import DashboardLayout from './dashboard/layout';
 
 export default function Home() {
   const [checking, setChecking] = useState(true);
@@ -28,5 +29,9 @@ export default function Home() {
     );
   }
 
-  return <DashboardPage />;
+  return (
+    <DashboardLayout>
+      <DashboardPage />
+    </DashboardLayout>
+  );
 }
