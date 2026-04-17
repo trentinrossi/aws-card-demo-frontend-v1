@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'CardDemo - AWS Mainframe Modernization',
-  description: 'CardDemo Application - User Management and Authentication',
+  title: 'GFT - Mainframe Modernization',
+  description: 'GFT Demo Application - User Management and Authentication',
 };
 
 export default function RootLayout({

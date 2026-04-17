@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CardDemo - AWS Mainframe Modernization",
+  title: "GFT Demo - GFT Mainframe Modernization",
   description: "Card Management System",
 };
 

@@ -23,11 +23,11 @@ export default function DashboardPage() {
         </div>
         
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Welcome to CardDemo
+          Welcome to GFT Demo
         </h1>
         
         <p className="text-xl text-gray-600 mb-8">
-          AWS Mainframe Modernization - Card Management System
+          GFT Mainframe Modernization - Card Management System
         </p>
         
         <div className="bg-white rounded-lg shadow-lg p-6 mb-8">

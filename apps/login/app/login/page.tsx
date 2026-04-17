@@ -79,8 +79,8 @@ export default function LoginPage() {
       <div className="bg-blue-900 text-white p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">AWS Mainframe Modernization</h1>
-            <h2 className="text-lg">CardDemo Application</h2>
+            <h1 className="text-2xl font-bold">GFT Mainframe Modernization</h1>
+            <h2 className="text-lg">GFT Demo Application</h2>
           </div>
           <div className="text-right">
             <div className="text-sm">Date: {currentDate}</div>
@@ -131,8 +131,8 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 pt-6 border-t border-gray-200 text-center text-sm text-gray-600">
-            <div>Application ID: CARDEMO</div>
-            <div>System ID: AWS-MAINFRAME-MOD</div>
+            <div>Application ID: GFTDEMO</div>
+            <div>System ID: GFT-MAINFRAME-MOD</div>
           </div>
         </div>
       </div>

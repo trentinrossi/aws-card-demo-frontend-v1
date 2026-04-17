@@ -73,7 +73,7 @@ export default function DashboardLayout({
         <div className="p-4">
           <div className="flex items-center justify-between mb-8">
             {isSidebarOpen && (
-              <h2 className="text-xl font-bold">CardDemo</h2>
+              <h2 className="text-xl font-bold">GFT Demo</h2>
             )}
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}

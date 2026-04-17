@@ -120,8 +120,8 @@ export default function UsersPage() {
       <div className="bg-blue-900 text-white p-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl font-bold">AWS Mainframe Modernization</h1>
-            <h2 className="text-lg">CardDemo - User List</h2>
+            <h1 className="text-2xl font-bold">GFT Mainframe Modernization</h1>
+            <h2 className="text-lg">GFT Demo - User List</h2>
           </div>
           <div className="text-right">
             <div className="text-sm">Date: {currentDate}</div>
