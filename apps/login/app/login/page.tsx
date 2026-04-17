@@ -18,12 +18,9 @@ export default function LoginPage() {
 
   useEffect(() => {
     if (userService.isAuthenticated()) {
-      const user = userService.getCurrentUser();
-      if (user?.userType === 'A') {
-        router.push('/admin-menu');
-      } else {
-        router.push('/main-menu');
-      }
+      // Already logged in, redirect to dashboard
+      window.location.href = '/dashboard';
+      return;
     }
 
     updateDateTime();
@@ -65,11 +62,8 @@ export default function LoginPage() {
       const response = await userService.login(formData);
       
       if (response.success) {
-        if (response.user.userType === 'A') {
-          router.push('/admin-menu');
-        } else {
-          router.push('/main-menu');
-        }
+        // Redirect to dashboard after successful login
+        window.location.href = '/dashboard';
       } else {
         setErrorMessage(response.message);
       }

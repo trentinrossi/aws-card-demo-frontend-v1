@@ -1,0 +1,10 @@
+node_modules
+.next
+*.log
+.git
+.gitignore
+README.md
+MONOREPO.md
+*.md
+apps/*/.next
+apps/*/node_modules

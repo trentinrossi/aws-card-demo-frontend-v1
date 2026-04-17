@@ -9,12 +9,8 @@ export default function HomePage() {
 
   useEffect(() => {
     if (userService.isAuthenticated()) {
-      const user = userService.getCurrentUser();
-      if (user?.userType === 'A') {
-        router.push('/admin-menu');
-      } else {
-        router.push('/main-menu');
-      }
+      // Redirect to dashboard (outside login app basePath)
+      window.location.href = '/dashboard';
     } else {
       router.push('/login');
     }

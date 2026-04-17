@@ -1,19 +1,32 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { authService } from '@/services/authService';
+import DashboardPage from './dashboard/page';
 
 export default function Home() {
-  const router = useRouter();
+  const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    // Redirect to login app on port 3000
-    window.location.href = 'http://localhost:3000';
-  }, [router]);
+    const token = authService.getToken();
+    const user = authService.getUser();
 
-  return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-lg">Redirecting to login...</div>
-    </div>
-  );
+    if (!token || !user) {
+      // Not authenticated, redirect to login app
+      window.location.href = '/login';
+    } else {
+      // Authenticated, stay on the dashboard
+      setChecking(false);
+    }    
+  }, []);
+
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-lg">Loading...</div>
+      </div>
+    );
+  }
+
+  return <DashboardPage />;
 }

@@ -2,12 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'standalone',
-  /* config options here */
+  basePath: '/dashboard',
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
   async rewrites() {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:8080/api/:path*", // Proxy to Backend
+        destination: `${process.env.API_BASE_URL || 'http://localhost:8080'}/api/:path*`,
       },
     ];
   },

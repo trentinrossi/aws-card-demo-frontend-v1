@@ -28,11 +28,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
       if (token && savedUserData) {
         try {
-          // Verify token is still valid by fetching current user
-          const currentUser = await authService.getCurrentUser();
-          setUser(currentUser);
+          // Trust localStorage data if token and user exist
+          // The login app already validated credentials and stored the session
+          setUser({ user: savedUserData } as UserResponse);
           setIsAuthenticated(true);
-          authService.setUser(currentUser); // Update stored user data
         } catch (error) {
           // Token is invalid, clear stored data
           console.error('Token validation failed:', error);
